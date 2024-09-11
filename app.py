@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "Image Generation API is running!"
+    return render_template('index.html')
 
 @app.route('/generate-image', methods=['POST'])
 def generate_image():
@@ -40,4 +40,4 @@ def generate_image():
         return jsonify({'error': 'An error occurred while generating the image.'}), 500
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=8080)
