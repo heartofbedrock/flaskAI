@@ -3,6 +3,10 @@ import requests
 
 app = Flask(__name__)
 
+@app.route('/')
+def home():
+    return "Image Generation API is running!"
+
 @app.route('/generate-image', methods=['POST'])
 def generate_image():
     data = request.get_json()
